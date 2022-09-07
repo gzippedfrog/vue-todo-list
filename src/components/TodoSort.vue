@@ -1,7 +1,6 @@
 <template>
   <div>
     Сортировать по:
-
     <select name="sortOrder" :value="sortBy" @input="updateSortBy">
       <option value="timestamp">Дата</option>
       <option value="completed">Статус</option>

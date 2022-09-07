@@ -1,3 +1,4 @@
+import moment from "moment";
 import Vue from "vue";
 import Vuex from "vuex";
 import VuexPersistence from "vuex-persist";
@@ -27,10 +28,20 @@ export default new Vuex.Store({
         a[state.sortBy] < b[state.sortBy] ? 1 : -1
       );
 
-      const query = state.searchQuery.trim();
+      const query = state.searchQuery.trim().toLowerCase();
 
       if (query) {
-        return sorted.filter((todo) => todo.description.includes(query));
+        return sorted.filter((todo) => {
+          const description = todo.description;
+          const date = moment(todo.timestamp).format("DD.MM.YY");
+          const status = todo.completed ? "выполнено" : "в работе";
+
+          return (
+            description.includes(query) ||
+            date.includes(query) ||
+            status.includes(query)
+          );
+        });
       }
       return sorted;
     },

@@ -1,28 +1,22 @@
 <template>
-  <div>
-    <table>
-      <thead>
-        <tr>
-          <th class="col-xsmall"></th>
-          <th>Описание</th>
-          <th class="col-small">Статус</th>
-          <th class="col-small">Дата</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="todo in todos"
-          @click="toggleTodo(todo)"
-          :key="todo.timestamp"
-        >
-          <td :class="['circle', todo.completed ? 'circle-ticked' : '']"></td>
-          <td>{{ todo.description }}</td>
-          <td :class="todo.completed ? 'completed' : 'inprogress'"></td>
-          <td>{{ formatDate(todo.timestamp) }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <table>
+    <thead>
+      <tr>
+        <th class="col-xsmall"></th>
+        <th>Описание</th>
+        <th class="col-small">Статус</th>
+        <th class="col-small">Дата</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="todo in todos" @click="toggleTodo(todo)" :key="todo.timestamp">
+        <td :class="['circle', todo.completed ? 'circle-ticked' : '']"></td>
+        <td>{{ todo.description }}</td>
+        <td :class="todo.completed ? 'completed' : 'inprogress'"></td>
+        <td>{{ formatDate(todo.timestamp) }}</td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 
 <script>
