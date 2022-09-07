@@ -36,6 +36,10 @@ input {
   border: none;
   background-color: rgba($color: #fff, $alpha: 0);
 
+  &::placeholder {
+    color: #c4c4c4;
+  }
+
   &:focus {
     outline: none;
   }

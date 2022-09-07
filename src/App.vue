@@ -41,8 +41,22 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #16191d;
-  padding: 20px 20px 0;
+  padding: 104px 20px 0;
   max-width: 1300px;
   margin: 0 auto;
+}
+
+.modal.fade.show {
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  border: 1px solid #dde2e4;
+  box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+}
+
+.modal-backdrop {
+  opacity: 0 !important;
 }
 </style>

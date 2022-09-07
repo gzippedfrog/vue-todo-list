@@ -93,7 +93,7 @@ table {
 
 .circle {
   position: relative;
-
+  
   &::before {
     content: "";
     position: absolute;
@@ -104,6 +104,7 @@ table {
     width: 20px;
     height: 20px;
     border-radius: 50%;
+    box-shadow: 0px 4px 4px rgba(19, 78, 193, 0.15);
   }
 }
 
