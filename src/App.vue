@@ -1,11 +1,16 @@
 <template>
   <div id="app">
-    <div>
-      <h3>To do list</h3>
+    <div class="mb-3 d-flex align-items-center justify-content-between">
+      <h3 class="m-0">To do list</h3>
       <PlusButton />
     </div>
 
-    <TodoList />
+    <div class="mb-3 d-flex align-items-center justify-content-between">
+      <TodoSearch />
+      <TodoSort />
+    </div>
+
+    <TodoTable />
 
     <AddTodoModal />
   </div>
@@ -13,26 +18,24 @@
 
 <script>
 import PlusButton from "./components/PlusButton.vue";
-import TodoList from "./components/TodoList.vue";
+import TodoSearch from "./components/TodoSearch.vue";
+import TodoSort from "./components/TodoSort.vue";
+import TodoTable from "./components/TodoTable.vue";
 import AddTodoModal from "./components/AddTodoModal.vue";
 
 export default {
   name: "App",
-  components: { PlusButton, TodoList, AddTodoModal },
-  data() {
-    return {};
+  components: {
+    PlusButton,
+    AddTodoModal,
+    TodoSearch,
+    TodoSort,
+    TodoTable,
   },
-
-  methods: {
-    showModal() {
-      this.$refs["add-todo-modal"].show();
-    },
-  },
-  mounted() {},
 };
 </script>
 
-<style lang="scss">
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -41,16 +44,5 @@ export default {
   padding: 20px 20px 0;
   max-width: 1300px;
   margin: 0 auto;
-
-  div:first-of-type {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-
-    h3 {
-      margin: 0;
-    }
-  }
 }
 </style>

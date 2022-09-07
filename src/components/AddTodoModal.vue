@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import { ADD_TODO } from "@/store/mutation-types";
+
 export default {
   name: "AddTodoModal",
   data() {
@@ -44,7 +46,7 @@ export default {
       const description = this.newTodoDescription.trim();
       if (!description) return;
 
-      this.$store.commit("addTodo", {
+      this.$store.commit(ADD_TODO, {
         description,
         timestamp: Date.now(),
         completed: false,
