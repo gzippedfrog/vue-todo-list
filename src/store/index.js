@@ -32,7 +32,7 @@ export default new Vuex.Store({
 
       if (query) {
         return sorted.filter((todo) => {
-          const description = todo.description;
+          const description = todo.description.toLowerCase();
           const date = moment(todo.timestamp).format("DD.MM.YY");
           const status = todo.completed ? "выполнено" : "в работе";
 
